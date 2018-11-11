@@ -8,7 +8,7 @@ import {HomeRoutingModule} from './home-routing.module';
     CommonModule,
     HomeRoutingModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent] 
 })
 export class HomeModule {
 }
