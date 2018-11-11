@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title>User Form</mat-card-title>
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="10px">
+      <form [formGroup]="userFormGroup" fxLayout="column" (keydown.enter)="addUserInState()">
+        <div fxLayout="row" fxLayoutGap="10px">
+          <mat-form-field fxFlex>
+            <input #firstNameInput matInput placeholder="First Name" [formControl]="firstNameFormControl"
+                  [errorStateMatcher]="matcher" required>
+            <mat-hint>eg: Jean-Rodolphe</mat-hint>
+            <mat-error *ngIf="firstNameFormControl.hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+              <input matInput placeholder="Email" [formControl]="emailFormControl"
+                    [errorStateMatcher]="matcher" required>
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="50%">
+            <mat-select placeholder="Role" [formControl]="roleControl" required>
+              <mat-option *ngFor="let role of roles" [value]="role">
+                {{role}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="roleControl.hasError('required')">Please choose an user role</mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+      <div fxLayout="row" fxLayoutAlign="center">
+          <button mat-raised-button color="primary" (click)="addUserInState()" [disabled]='userFormGroup.invalid' >Add User</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

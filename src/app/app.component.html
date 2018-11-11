@@ -1,0 +1,14 @@
+<mat-sidenav-container style="height: calc(100vh - 20px)" autosize>
+  <mat-sidenav [opened]="true" #sidenav [mode]="sideNavMode">
+    <div class="column-menu">
+      <div><mat-icon class="pointer" (click)="toggleSideNav()">menu</mat-icon></div>
+      <div *ngIf="sideNavMode === 'push'" class="column-menu">
+        <p (click)="routeToHome()" class="menu-item pointer"> Home </p>
+        <p (click)="routeToUser()" class="menu-item pointer"> User Management </p>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

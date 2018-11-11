@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>User List</mat-card-title>
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutGap="5px">
+      <div fxFlex="0 0 50%" class="example-container">
+        <h2>Admins</h2>
+
+        <div
+          cdkDropList
+          id="ADMIN"
+          #adminList="cdkDropList"
+          [cdkDropListData]="selfAdmins"
+          [cdkDropListConnectedTo]="[userList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let admin of selfAdmins" cdkDrag>{{admin.firstName}}</div>
+        </div>
+      </div>
+
+      <div fxFlex="0 0 50%" class="example-container">
+        <h2>Users</h2>
+
+        <div
+          cdkDropList
+          id="USER"
+          #userList="cdkDropList"
+          [cdkDropListData]="selfUsers"
+          [cdkDropListConnectedTo]="[adminList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let user of selfUsers" cdkDrag>{{user.firstName}}</div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

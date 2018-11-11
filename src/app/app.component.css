@@ -1,0 +1,25 @@
+.column-menu {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  justify-content: center;
+  align-content: center;
+}
+
+.column-menu:first-child {
+  padding-top: 10px;
+}
+
+.column-menu div {
+  padding-bottom: 10px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  font-family: Arial;
+}
+
+.pointer {
+  cursor: pointer;
+}
