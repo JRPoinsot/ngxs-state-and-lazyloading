@@ -7,6 +7,7 @@ import {UsersModule} from './users/users.module';
 import {UiModule} from './ui/ui.module';
 import {HomeModule} from './home/home.module';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     UiModule,
     NgxsModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
