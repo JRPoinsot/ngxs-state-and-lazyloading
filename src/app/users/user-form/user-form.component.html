@@ -5,7 +5,7 @@
       <form [formGroup]="userFormGroup" fxLayout="column" (keydown.enter)="addUserInState()">
         <div fxLayout="row" fxLayoutGap="10px">
           <mat-form-field fxFlex>
-            <input #firstNameInput matInput placeholder="First Name" [formControl]="firstNameFormControl"
+            <input id="firstnameinput" #firstNameInput matInput placeholder="First Name" [formControl]="firstNameFormControl"
                   [errorStateMatcher]="matcher" required>
             <mat-hint>eg: Jean-Rodolphe</mat-hint>
             <mat-error *ngIf="firstNameFormControl.hasError('required')">
@@ -13,7 +13,7 @@
             </mat-error>
           </mat-form-field>
           <mat-form-field fxFlex>
-              <input matInput placeholder="Email" [formControl]="emailFormControl"
+              <input id="emailinput" matInput placeholder="Email" [formControl]="emailFormControl"
                     [errorStateMatcher]="matcher" required>
               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
@@ -25,7 +25,7 @@
         </div>
         <div fxLayout="row">
           <mat-form-field fxFlex="50%">
-            <mat-select placeholder="Role" [formControl]="roleControl" required>
+            <mat-select id="selectrole" placeholder="Role" [formControl]="roleControl" required>
               <mat-option *ngFor="let role of roles" [value]="role">
                 {{role}}
               </mat-option>
@@ -35,7 +35,7 @@
         </div>
       </form>
       <div fxLayout="row" fxLayoutAlign="center">
-          <button mat-raised-button color="primary" (click)="addUserInState()" [disabled]='userFormGroup.invalid' >Add User</button>
+          <button id="adduserbutton" mat-raised-button color="primary" (click)="addUserInState()" [disabled]='userFormGroup.invalid' >Add User</button>
       </div>
     </div>
   </mat-card-content>

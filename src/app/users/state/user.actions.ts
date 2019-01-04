@@ -95,8 +95,7 @@ export class UserState {
     console.log(AddUser.type);
     const userList = [...ctx.getState().users];
     const sortedUserList = userList.sort((x, y) => y.index - x.index);
-    const index = sortedUserList.find(user => user.role === action.user.role).index + 1;
-    action.user.index = index;
+    action.user.index = sortedUserList.find(user => user.role === action.user.role).index + 1;
     userList.push(action.user);
     ctx.setState({
       users: userList
