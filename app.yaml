@@ -1,0 +1,9 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+handlers:
+  - url: /
+    static_files: dist/ngxs-state/index.html
+    upload: dist/ngxs-state/index.html
+  - url: /
+    static_dir: dist/ngxs-state

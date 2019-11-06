@@ -8,6 +8,9 @@ import {UiModule} from './ui/ui.module';
 import {HomeModule} from './home/home.module';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -29,10 +32,12 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     UiModule,
     NgxsModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     RouterModule.forRoot(routes),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   exports: [RouterModule],
   entryComponents: [],

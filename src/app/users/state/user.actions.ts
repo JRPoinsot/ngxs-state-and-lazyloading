@@ -1,4 +1,4 @@
-import {State, Action, StateContext, Selector} from '@ngxs/store';
+import {Action, Selector, State, StateContext} from '@ngxs/store';
 
 ​
 /************************************************
