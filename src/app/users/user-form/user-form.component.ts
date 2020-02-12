@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class UserFormComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
-  @ViewChild('firstNameInput') firstNameInput: ElementRef;
+  @ViewChild('firstNameInput', { static: true }) firstNameInput: ElementRef;
 
   roles = [UserRole.USER, UserRole.ADMIN];
 
