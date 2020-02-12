@@ -11,10 +11,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  users$: Observable<any>;
+  users: any;
 
   ngOnInit() {
-    this.users$ = this.userService.getUsers();
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+    })
   }
 
   getUsers(): void {
@@ -22,7 +24,9 @@ export class HomeComponent implements OnInit {
   }
 
   getUser(userId: string): void {
-    this.users$ = this.userService.getUser(userId);
+    this.userService.getUser(userId).subscribe(user => {
+      this.users = user;
+    })
   }
 
 }

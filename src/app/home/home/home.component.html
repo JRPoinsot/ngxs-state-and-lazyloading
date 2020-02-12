@@ -3,7 +3,7 @@
   <button id="1button" mat-raised-button color="primary" (click)="getUser('1')">Get user 1</button>
   <button id="2button" mat-raised-button color="primary" (click)="getUser('2')">Get user 2</button>
 </div>
-<p *ngIf="(users$ | async)">
-  {{ users$ | async | json}}
+<p *ngIf="users">
+  {{ users | json}}
 </p>
 
